@@ -1,0 +1,26 @@
+{
+    "page": {
+      "title": "Speedrun - Preguntas frecuentes"
+    },
+    "testing": {
+      "title": "Pruebas de traducción",
+      "translated": "Traducido",
+      "missing": "Pendiente",
+      "showKeys": "Mostrar claves de traducción",
+      "hideKeys": "Ocultar claves de traducción",
+      "highlightMissing": "Resaltar pendientes",
+      "unhighlightMissing": "Quitar resaltado",
+      "download": "Descargar traducción"
+    },
+    "nav": {
+      "home": "Inicio",
+      "portfolio": "Portfolio",
+      "startupDirectory": "Startup Directory",
+      "demoDay": "Día de demostración",
+      "perks": "Beneficios",
+      "faq": "Preguntas frecuentes"
+    }
+
+
+
+}

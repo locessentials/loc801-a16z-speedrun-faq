@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Localization meta tags - students should update these -->
+    <meta name="description" content="FAQ page for a16z speedrun program" data-i18n="page.description" data-i18n-attr="content">
+    <title data-i18n="page.title">Speedrun - FAQ</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <!-- Testing Panel (toggle with Ctrl+Shift+L) -->
+    <div id="testing-panel" class="testing-panel">
+        <h3 data-i18n="testing.title">Translation Testing</h3>
+        <div class="testing-stats">
+            <p><span data-i18n="testing.translated">Translated</span>: <span id="translated-percent">0%</span></p>
+            <p><span data-i18n="testing.missing">Missing</span>: <span id="missing-count">0</span></p>
+        </div>
+        <div class="testing-controls">
+            <button id="show-keys" data-i18n="testing.showKeys">Show Translation Keys</button>
+            <button id="highlight-missing" data-i18n="testing.highlightMissing">Highlight Missing</button>
+            <button id="download-locale" data-i18n="testing.download">Download Translation</button>
+        </div>
+    </div>
+
+    <!-- Top Banner -->
+    <div class="announcement-banner">
+        <div class="banner-content">
+            <span class="banner-text" data-i18n="banner.text">Applications for our upcoming Los Angeles cohort are open until May 11th! Apply now at <a href="https://sr.a16z.com/" target="_blank" rel="noopener noreferrer" class="banner-link">sr.a16z.com</a> 🙌</span>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <nav class="nav-left">
+                <a href="https://speedrun.a16z.com" target="_blank" class="logo">
+                    <img src="img/logo.png" alt="a16z speedrun logo" width="203" height="28" data-i18n="logo.alt" data-i18n-attr="alt">
+                </a>
+            </nav>
+
+            <!-- Navigation Menu -->
+            <nav class="nav-center">
+                <div class="dropdown">
+                    <button class="dropdown-btn" data-i18n="nav.portfolio">PORTFOLIO</button>
+                    <div class="dropdown-content">
+                        <a href="https://speedrun.a16z.com/companies" target="_blank" data-i18n="nav.startupDirectory">Startup Directory</a>
+                    </div>
+                </div>
+                <a href="https://speedrun.a16z.com/demo-day" target="_blank" data-i18n="nav.demoDay">DEMO DAY</a>
+                <a href="https://speedrun.a16z.com/perks" target="_blank" data-i18n="nav.perks">PERKS</a>
+                <a href="/index.html" class="active" data-i18n="nav.faq">FAQ</a>
+            </nav>
+
+            <!-- Right Side Buttons -->
+            <div class="nav-right">
+                <!-- Language Switcher (without flags) -->
+                <div class="language-switcher">
+                    <a href="/index.html" data-lang="en" class="lang-btn" data-i18n="language.english">ENGLISH</a>
+                    <a href="#" data-lang="es" class="lang-btn" data-i18n="language.spanish">ESPAÑOL</a>
+                    <!-- <a href="#" data-lang="fr" class="lang-btn" data-i18n="language.french">FRENCH</a> -->
+                </div>
+
+                <!-- Apply Now Button -->
+                <a href="https://sr.a16z.com/" class="apply-button" data-i18n="nav.applyNow">APPLY NOW</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+        <div class="container-width">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="#" data-i18n="breadcrumb.home">HOME</a></li>
+                    <li class="breadcrumb-divider">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.21436 2.85742H5.71436V5.71456H8.21436V8.57171H10.7144V11.4289H8.21436V14.286H5.71436V17.1431H8.21436V14.286H10.7144V11.4289H13.2144V10.7146H14.4644V9.28599H13.2144V8.57171H10.7144V5.71456H8.21436V2.85742Z" fill="currentColor"/>
+                        </svg>
+                    </li>
+                    <li><span data-i18n="breadcrumb.faq">FAQ</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="page-title">
+                <h1 data-i18n="faq.title">FAQ</h1>
+                <p data-i18n="faq.subtitle">Browse categories to find answers to common questions about our program, eligibility, application steps, and resources.</p>
+                <p>
+                    <span data-i18n="faq.contactIntro">If you need further help, don't hesitate to</span>
+                    <a href="mailto:sr-team@a16z.com" data-i18n="faq.contactLink">contact us</a>.
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <label for="faq-search" data-i18n="search.label">SEARCH</label>
+                <input type="text" id="faq-search" placeholder="Type to search questions..." data-i18n="search.placeholder" data-i18n-attr="placeholder">
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all" data-i18n="categories.all">All Categories</button>
+                <button class="category-btn" data-category="program" data-i18n="categories.program">Program Overview</button>
+                <button class="category-btn" data-category="eligibility" data-i18n="categories.eligibility">Eligibility & Application</button>
+                <button class="category-btn" data-category="selection" data-i18n="categories.selection">Selection Process</button>
+                <button class="category-btn" data-category="cohort" data-i18n="categories.cohort">Cohort Details</button>
+                <button class="category-btn" data-category="investment" data-i18n="categories.investment">Investment Terms</button>
+                <button class="category-btn" data-category="operations" data-i18n="categories.operations">Operational Support & Resources</button>
+                <button class="category-btn" data-category="founders" data-i18n="categories.founders">Founder Responsibilities & Success Metrics</button>
+                <button class="category-btn" data-category="alumni" data-i18n="categories.alumni">Post-Program Support & Alumni Network</button>
+                <button class="category-btn" data-category="immigration" data-i18n="categories.immigration">Immigration & Visa Support</button>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-container">
+                <!-- Program Overview -->
+                <section class="faq-category" data-category="program">
+                    <h2 data-i18n="categories.program">Program Overview</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="program.q1">What does the a16z speedrun program cover?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer" data-i18n="aria.toggleAnswer" data-i18n-attr="aria-label">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="program.a1.p1">The a16z speedrun program is a fast‐paced, twelve-week startup program that guides founders through every critical stage of their growth. It kicks off with an orientation to set expectations and introduce the cohort, then dives into rapid product development—helping founders think through MVP while addressing key topics like customer acquisition and design partnerships.</p>
+                            <p data-i18n="program.a1.p2">Throughout the program, startups benefit from expert-led sessions and interactive office hours that cover:</p>
+                            <ul>
+                                <li data-i18n="program.a1.l1">Brand Building & Go-to-Market Strategy: Crafting your story, marketing, and driving product-led growth.</li>
+                                <li data-i18n="program.a1.l2">Customer Acquisition & Launch: Securing early users and executing effective launch plans.</li>
+                                <li data-i18n="program.a1.l3">Fundraising & Strategic Partnerships: Pitching, navigating investment, and building lasting relationships.</li>
+                                <li data-i18n="program.a1.l4">Team Building & Operational Scaling: Developing high-performing teams and refining internal processes for sustained growth.</li>
+                                <li data-i18n="program.a1.l5">Community & Enterprise Sales: Building communities, forming strategic partnerships, and landing your first enterprise customers.</li>                                   <li data-i18n="program.a1.l6">Product-Market Fit & Demo Day Prep: Assessing market traction which culminates in a Demo Day to showcase progress.</li>                             
+                            </ul>
+                            <p data-i18n="program.a1.p3">This comprehensive curriculum is delivered via IRL keynote sessions with luminary speakers and founders, workshops, webinars (including industry-specific collaborations with AWS and Google Cloud), and office hours—all designed to equip startups with the skills and networks needed to scale quickly.</p>                            
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="program.q2">What is the program timeline and structure?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="program.a2">The a16z speedrun program is IRL and runs for twelve intensive weeks, guiding your startup from idea to market launch. The program moves through sequential modules—each dedicated to key aspects such as rapid product development, go-to-market strategy, fundraising, team building, and operational scaling. Expect regular check-ins, one-on-one office hours, and interactive sessions, culminating in a Demo Day where you present your progress to potential investors.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Eligibility & Application -->
+                <section class="faq-category" data-category="eligibility">
+                    <h2 data-i18n="categories.eligibility">Eligibility & Application Process</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q1">Who is eligible for a16z speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a1">We welcome early-stage founders from all backgrounds who are passionate about innovation. While our focus includes those building at the intersection of technology and entertainment, we invite anyone with a bold vision to apply. Our current cohort represents a diverse mix of ventures—from live ops tools and generative AI products to social trivia platforms, avatar foundation models, and robots—showcasing the wide range of creativity and expertise we embrace.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q2">How do I apply for the a16z speedrun program?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a2">Submit your application at sr.a16z.com.</p>
+                        </div>
+                    </div>                            
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q3">What is the application deadline?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a3">The current deadline for our upcoming cohort which will be hosted in Los Angeles is <span class="localize-date" data-date="2025-05-11">May 11th, 2025</span>. Applications submitted before the open window are considered for the upcoming cohort.</p>
+                        </div>
+                    </div>    
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q4">What if I submit my application after the deadline?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a4">Applications received after the May 11th, 2025 deadline will be reviewed closer to the application open window for the next cohort.</p>
+                        </div>
+                    </div>    
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q5">Can I apply if I'm a solo founder?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a5">Absolutely—you can apply as a solo founder! We value founders who demonstrate the ability to build from scratch and overcome challenges independently. That said, due to the complexities of scaling a startup, we generally prefer teams with multiple founders who bring complementary skill sets. If you’re a solo founder with a strong track record of execution, we strongly encourage you to apply, and we’re open to helping with founder matching where necessary.</p>
+                        </div>
+                    </div>    
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q6">If I have already secured funding, can I still apply to a16z speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a6">Yes, we aim to be the first check into your company but also accept early-stage companies that have already raised capital.</p>
+                        </div>
+                    </div>    
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q7">Can I reapply if my application is not accepted?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a7">Yes! We understand that early-stage startups are in constant evolution. If you’re not selected for the current cohort, we encourage you to keep refining your product and reapply in the future. Many repeat applicants have been admitted into the program.</p>
+                        </div>
+                    </div>    
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q8">What if my startup is based outside of the host city?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a8">Because the program is designed to be immersive and in‑person, participants must be able to attend on site. If relocation poses a challenge, please reach out—we’re open to discussing individual circumstances!</p>
+                        </div>
+                    </div>                        
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q9">My startup doesn’t really need the capital—does it still make sense to apply?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a9">Absolutely. At a16z speedrun, the money is just one element of what we offer. Many of our founders already have access to capital, but they come to speedrun for the hands‑on mentorship, strategic guidance, and network that help accelerate growth. If you’re looking to refine your strategy and build a scalable business quickly, this program is for you.</p>
+                        </div>
+                    </div>     
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q10">I have a great startup idea, but I’m not technical. Will you still fund me?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a10">Our program is designed for teams that can build and iterate on their product internally. This usually means having a technical co-founder or equivalent expertise. If you’re not technical, we recommend partnering with someone who can help you execute your vision effectively.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q11">Do you provide feedback on application outcomes?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a11">Because we review a high volume of applications, we aren’t able to give detailed feedback on every submission. However, if you’re invited to interview, you’ll receive specific insights about your application and the reasons behind our decision.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q12">Our team has two ideas. Can we submit separate applications for both?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a12">We suggest focusing on your strongest idea. Concentrating on one concept helps you present a clear, compelling vision that aligns with our program’s focus. Multiple applications can dilute your message, so pick the idea with the greatest potential.</p>
+                        </div>
+                    </div> 
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="eligibility.q13">Can I participate in a16z speedrun while being a full‑time student or working full‑time?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="eligibility.a13">You can apply as a student or an employee, but our 12‑week program requires a full‑time commitment. We expect founders to dedicate themselves fully to building their startup during the program and beyond, to maximize its impact.</p>
+                        </div>
+                    </div> 
+
+                </section>
+
+                <!-- Selection Process -->
+                <section class="faq-category" data-category="selection">
+                    <h2 data-i18n="categories.selection">Selection Process</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="selection.q1">How does a16z select teams for speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="selection.a1.intro">We look for teams that demonstrate:</p>
+                            <ul>
+                                <li data-i18n="selection.a1.l1">A proven capacity to go from zero to one without waiting for permission</li>
+                                <li data-i18n="selection.a1.l2">Rapid development and execution</li>
+                                <li data-i18n="selection.a1.l3">Unique insights or "earned secrets" that offer a distinct competitive advantage</li>
+                                <li data-i18n="selection.a1.l4">Strong, complementary skill sets across technology, business, and go-to-market strategies</li>
+                                <li data-i18n="selection.a1.l5">Early signs of market validation (e.g., prototypes, metrics), which are encouraged but not required</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="selection.q2">How is the review process structured?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="selection.a2">Our team reviews applications every two weeks. If we’re excited to move forward with yours, we’ll invite you to submit a brief video pitch or schedule a 15-minute interview. We respect your time, so all interviews will start and end promptly. Following the interview, we may reach out for additional information such as references, data, or further details about your company. After an interview, our goal is to make final decisions quickly and get back to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="selection.q3">If a16z speedrun has already invested in a company with a similar idea to mine - does that affect my chances?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="selection.a3">Not at all. We evaluate each team on its own merits. Even if we’ve backed companies in similar spaces, what matters is your unique approach, the strength of your team, and your potential to execute. Overlap in ideas isn’t a barrier.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="selection.q4">What is your conflict policy once you invest in a category via a16z speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="selection.a4">We focus on very early-stage startups in speedrun and prioritize the backgrounds of the founders over the ideas. Thus, the expectation is that the idea will change and evolve, and we may end up investing in multiple companies within the same category, whether in speedrun or a16z's other funds.</p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Cohort Details -->
+                <section class="faq-category" data-category="cohort">
+                    <h2 data-i18n="categories.cohort">Cohort Details & Locations</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="cohort.q1">Where will the upcoming cohort be held?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="cohort.a1">Our next cohort will take place in Los Angeles, and in-person attendance is required.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="cohort.q2">How frequently and where are the cohorts hosted?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="cohort.a2">We host two cohorts per year—one in Los Angeles and one in San Francisco. For 2026, we’re actively finalizing the calendar, with the Los Angeles cohort tentatively scheduled for Q1/Q2 and the San Francisco cohort for Q3/Q4.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="cohort.q3">How many companies does a16z speedrun admit into each cohort?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="cohort.a3">There is no set minimum number of companies for speedrun per cohort. Our primary focus is maintaining a high standard for the founders we admit into the program.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Investment Terms -->
+                <section class="faq-category" data-category="investment">
+                    <h2 data-i18n="categories.investment">Investment Terms</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="investment.q1">How much does a16z speedrun invest?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="investment.a1">We intend to invest up to <span class="localize-currency" data-amount="1000000" data-currency="USD">$1,000,000</span> in each accepted company.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="investment.q2">What are the investment terms?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="investment.a2">In each accepted company we intend to invest $1,000,000. Whether or not you have already secured external funding, we work with you during onboarding to review and discuss all the specifics—ensuring complete transparency before you join the program.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="investment.q3">Can I seek additional funding while participating?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="investment.a3">Yes, the a16z speedrun investment can complement a broader funding round. However, we recommend that founders delay raising additional capital until they've progressed through the program and present on Demo Day—a key part of our process.</p>
+                        </div>
+                    </div>                    
+                </section>
+
+                <!-- Operations Category -->
+                <section class="faq-category" data-category="operations">
+                    <h2 data-i18n="categories.operations">Operational Support & Resources</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="operations.q1">Which members of the a16z speedrun team will I collaborate with?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="operations.a1">You will receive support from various members of the a16z speedrun team, including partners, advisors, and industry experts, tailored to your company's specific needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="operations.q2">What additional operational support and resources are provided?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="operations.a2">Beyond the core curriculum, a16z speedrun offers extensive operational support to help you tackle day-to-day challenges. This includes access to experts in capital network, recruiting and people, marketing, and business development. Our network of advisors and industry partners is available to offer hands-on assistance, ensuring you have the tools and guidance needed to succeed and scale effectively.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Founders Category -->
+                <section class="faq-category" data-category="founders">
+                    <h2 data-i18n="categories.founders">Founder Responsibilities & Success Metrics</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="founders.q1">What are founder responsibilities and expectations?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="founders.a1">Our program is designed to support your company's growth every step of the way. To help you make the most of this opportunity, we encourage active participation in both in-person and virtual sessions, interactive workshops, and office hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="founders.q2">How do we measure success during the program?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="founders.a2">We focus on celebrating your progress through clear, actionable milestones. Throughout the program, you'll work on advancing your product, securing early customers, and refining your fundraising strategy—goals we set together to match your unique vision. By Demo Day, we aim to see tangible progress, such as market traction and a validated business model.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="founders.q3">What if I have a scheduling conflict or need to miss a session?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="founders.a3">We understand that startups are dynamic and sometimes unforeseen circumstances arise. If you're unable to attend a session, please notify your program lead as soon as possible. We offer recorded sessions and one-on-one catch-ups to ensure you stay on track, though we do expect all founders to be in‑person.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="founders.q4">What is the time commitment for a16z speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="founders.a4">Our 12‑week program is designed to be both impactful and manageable. You'll typically only need to commit to one focused day per week—filled with in‑person sessions, workshops, and office hours—while still having plenty of time to work on your startup throughout the week. This structure ensures you receive high‑quality mentorship and peer learning without overwhelming your schedule.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Alumni Category -->
+                <section class="faq-category" data-category="alumni">
+                    <h2 data-i18n="categories.alumni">Post-Program Support & Alumni Network</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="alumni.q1">What post-program support and alumni network can I expect?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="alumni.a1">Even after the program concludes, you're not on your own. Graduates gain ongoing access to our robust alumni network and exclusive networking events. This long-term support is integral to ensuring that you have the resources needed to scale your company well beyond the program.</p>
+                        </div>
+                    </div>
+                </section>                
+
+                <!-- Immigration Category -->
+                <section class="faq-category" data-category="immigration">
+                    <h2 data-i18n="categories.immigration">Immigration & Visa Support</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="immigration.q1">I'm in the US on a work visa. Can I join the program?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="immigration.a1">In most cases, yes. We work with experienced immigration experts who have helped many founders navigate visa requirements. If you're invited to join a16z speedrun, we'll connect you with the right resources to explore the best options for your situation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3 data-i18n="immigration.q2">I don't currently have a visa. Can I still apply to a16z speedrun?</h3>
+                            <button class="toggle-btn" aria-label="Toggle answer">
+                                <span class="visually-hidden">Toggle answer</span>
+                                <span class="icon">+</span>
+                            </button>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="immigration.a2">Absolutely. We understand that immigration hurdles can be a challenge for international founders. If you're accepted into a16z speedrun, we'll connect you with our experienced immigration partners who have helped many founders secure the necessary visas.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/speedrun.png" alt="speedrun sr logo" width="60" height="60" data-i18n="sr-logo.alt" data-i18n-attr="alt">
+                </div>
+                <div class="footer-links">
+                    <a href="https://speedrun.a16z.com/privacy-policy" target="_blank" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="https://speedrun.a16z.com/terms-of-use" target="_blank" data-i18n="footer.terms">Terms of Use</a>
+                    <a href="https://speedrun.a16z.com/disclosures" target="_blank" data-i18n="footer.disclosures">Disclosures</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>© <span id="current-year">2025</span> <span data-i18n="footer.copyright">Andreessen Horowitz</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/localization.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
