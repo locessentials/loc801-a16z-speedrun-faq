@@ -1,4 +1,4 @@
-# Webpage Localization Final Project: a16z Speedrun FAQ
+# Webpage Localization Project: a16z Speedrun FAQ
 
 ## Overview
 In this project, you will localize a simplified version of the [a16z Speedrun FAQ page](https://speedrun.a16z.com/faq). The project is set up to ensure that no text is missed during translation: every string on the page is tied to a translation key, and the built-in testing panel lets you track your progress, identify missing translations, and download your work at any point.
