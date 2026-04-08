@@ -1,7 +1,11 @@
 # Webpage Localization Final Project: a16z Speedrun FAQ
 
 ## Overview
-In this final project, you will localize a simplified version of the a16z Speedrun FAQ page. The project tests your ability to handle common website localization challenges, including text translation, date formatting, currency localization, and maintaining correct HTML attributes.
+In this project, you will localize a simplified version of the [a16z Speedrun FAQ page](https://speedrun.a16z.com/faq). The project is set up to ensure that no text is missed during translation: every string on the page is tied to a translation key, and the built-in testing panel lets you track your progress, identify missing translations, and download your work at any point.
+
+Try it out: Navigate to [https://locessentials.github.io/loc801-a16z-speedrun-faq/](https://locessentials.github.io/loc801-a16z-speedrun-faq/) on Chrome. (The functionality described does not work on Opera.) Enable and disable the Translation Testing pane by clicking `ctrl+shift+L`. This will toggle the localization completeness panel on and off.
+
+The project also tests your ability to handle common website localization challenges, including text translation, date formatting, currency localization, and maintaining correct HTML attributes.
 
 ## Project Structure
 ```
@@ -11,7 +15,7 @@ project/
 │   └── styles.css          # Styling with localization-specific variables
 ├── js/
 │   ├── main.js             # Core functionality (search, filter, accordion)
-│   └── localization.js     # Localization utilities
+│   └── localization.js     # Localization utilities + translation testing panel
 ├── locales/
 │   ├── en.json             # Complete English strings (reference)
 │   ├── es.json             # Spanish template (you will complete)
@@ -25,7 +29,7 @@ project/
 ## Important: Understanding the Localization Pattern
 
 ### Single HTML File Approach
-This project uses a single HTML file for all languages, rather than creating separate HTML files for each language (like faq-es.html or faq-fr.html). **This is intentional** and follows modern internationalization practices:
+This project uses a single HTML file for all languages, rather than creating separate HTML files for each language (like faq-es.html or faq-fr.html). **This is intentional** and follows modern internationalization practices.
 
 ### HTML and JSON Redundancy - By Design
 You'll notice that the HTML file contains English text content that seems to duplicate what's in the `en.json` file. This redundancy is also by design:
@@ -93,6 +97,11 @@ This pattern provides several benefits:
 - Better SEO as search engines can index content without JavaScript
 - Site works even with JavaScript disabled (progressive enhancement)
 
+## Deploying to Production
+This project is designed so that the translation testing panel can be cleanly removed when the localization is complete and the page is ready to go live. All testing panel logic — the keyboard shortcut, the show/hide keys toggle, the highlight missing button, and the download button — lives entirely in `localization.js`. To deploy a clean production version, simply remove the `<script src="js/localization.js"></script>` tag from `index.html` and exclude the file from your deployment.
+
+**Note:** This same separation has not yet been applied to `styles.css`. That file currently contains styling for both the page itself and the translation testing panel. As an extra challenge, consider splitting it into two files — `styles.css` for the page and `localization.css` for the testing panel — so that the testing styles can be excluded from production just as cleanly as the JavaScript.
+
 ## Your Tasks
 
 ### 1. Complete the locale files
@@ -100,7 +109,7 @@ This pattern provides several benefits:
 - Ensure all strings are properly translated and maintain the correct JSON format.
 - Pay attention to nested objects in the JSON structure.
 
-Be aware that the `en.json` files contains around 2000 words for translation. To speed up your work, consider following an automatic translation + post editing workflow.
+Be aware that the `en.json` file contains around 2000 words for translation. To speed up your work, consider following an automatic translation + post-editing workflow.
 
 ### 2. As you work, test your localization
 - Use the built-in testing panel (**toggle with Ctrl+Shift+L**) to:
@@ -108,17 +117,16 @@ Be aware that the `en.json` files contains around 2000 words for translation. To
   - Verify that all strings are properly displayed
   - Test the language switching functionality
 
-**Note:** The testing panel works best when you preview the page on the Chrome browser. The panel doesn't work when using Opera.
+**Note:** The testing panel works best when previewing the page in Chrome. It does not work in Opera.
 
-### 2. Properly localize special content
+### 3. Properly localize special content
 - **Dates**: The application deadline date (May 11th, 2025) should be formatted according to each locale.
 - **Currency**: The investment amount ($1,000,000) should be formatted according to each locale.
 - **Pluralization**: Handle any pluralization issues that may arise in your target languages.
 
-### 3. Update HTML attributes
+### 4. Update HTML attributes
 - Ensure that all localized attributes (like `placeholder`, `title`, `alt`) are correctly updated.
 - Check that your translations fit in the design without breaking the layout.
-
 
 
 ## Localization Testing Framework
@@ -128,27 +136,22 @@ The project includes a simple testing framework to help you validate your work:
 - **Testing Panel**: Use Ctrl+Shift+L to toggle the testing panel, showing:
   - Percentage of translated strings
   - Number of missing translations
-  - Option to show translation keys instead of content (useful for identifying strings requiring translation)  
+  - Option to show translation keys instead of content (useful for identifying strings requiring translation)
   - Option to highlight/unhighlight missing translations
   - Download the current version of your JSON files
-  **Note:** You'll need to work in the Chrome browser, or similar for the testing panel to work.
 
-When you've translated all strings, if you select "Highlight Missing" an alert message will appear congratulating you on translating all content!
+**Note:** You'll need to work in Chrome for the testing panel to work.
+
+When you've translated all strings, selecting "Highlight Missing" will show an alert congratulating you on completing the translation!
 
 ## Evaluation Criteria
-Your submission will be evaluated based on:
+If you're completing this project as part of a course, your submission will be evaluated based on:
 
 1. **Completeness**: All strings properly translated in both target languages
 2. **Accuracy**: Translations that convey the correct meaning and context
 3. **Formatting**: Proper handling of dates, currencies, and special characters
 4. **Technical implementation**: Correct JSON formatting and structure
 5. **Cultural adaptation**: Appropriate adjustments for the target culture
-
-## Submission Instructions
-1. Complete your translations for Spanish and if you wish French
-2. Test your work thoroughly in all languages you worked on
-3. Deliver only your translated JSON files
-4. Submit through the course portal by the deadline
 
 ## Tips for Success
 - Use the testing panel regularly to check your progress
